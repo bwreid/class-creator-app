@@ -8,8 +8,8 @@ describe('CreateStudentController', function() {
     $rootScope = _$rootScope_
 
     // include the specific controller we want to use
-    controller = $controller('CreateStudentController', { $scope: {} });
-    $controller('CreateClassController', { $scope: {} });
+    controller = $controller('CreateStudentController', { $scope: {} })
+    $controller('CreateClassController', { $scope: {} })
   }))
 
   it('starts with a default student', function () {
@@ -19,11 +19,17 @@ describe('CreateStudentController', function() {
 
 
   it('can assign a course to a student', function () {
+    // Empty any students in the course
+    var course = $rootScope.courses[0]
+    course.students = []
+
+    var testStudent = { name: 'Dr.Meatball', course_id: course.id }
     var student = controller.student
-    student.name = 'Dr. Meatball'
-    student.course_id = $rootScope.courses[0].id
+    student.name = testStudent.name
+    student.course_id = testStudent.course_id
     controller.create()
 
-    expect($rootScope.courses[0].students.length).to.equal(3)
+    expect(course.students.length).to.equal(1)
+    expect(course.students[0].name).to.equal(testStudent.name)
   })
 })

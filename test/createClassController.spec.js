@@ -8,7 +8,7 @@ describe('CreateClassController', function() {
     $rootScope = _$rootScope_
 
     // include the specific controller we want to use
-    controller = $controller('CreateClassController', { $scope: {} });
+    controller = $controller('CreateClassController', { $scope: {} })
   }))
 
   it('starts with a single course in it', function () {

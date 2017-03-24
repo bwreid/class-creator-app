@@ -1,0 +1,39 @@
+{
+  "name": "class-creator-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.6.3",
+    "angular-mocks": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "chai": "^3.5.0",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-sinon-chai": "^1.2.4",
+    "mocha": "^3.2.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start test/support/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwreid/class-creator-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bwreid/class-creator-app/issues"
+  },
+  "homepage": "https://github.com/bwreid/class-creator-app#readme"
+}

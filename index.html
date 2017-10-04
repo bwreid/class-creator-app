@@ -8,6 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js" charset="utf-8"></script>
+
+    <script defer src="./app.js"></script>
+    <script defer src="./controllers/grade.js"></script>
+    <script defer src="./controllers/create.class.js"></script>
+    <script defer src="./controllers/create.student.js"></script>
+    <script defer src="./controllers/create.csv.js"></script>
+    <script defer src="./controllers/stats.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body class="container">
@@ -26,10 +36,26 @@
             <strong>Teacher Name:</strong>
             {{ course.teacher }}
           </p>
+          <p>
+            <strong>Student Count:</strong>
+            {{ course.students.length }}
+          </p>
           <div ng-show="!course.students.length">
             <p>No students in this class yet!</p>
           </div>
-          <div ng-controller="GradeController as GradeCtrl"
+          <div class="center-align expand">
+            <i ng-hide="course.show"
+              ng-click="course.show = !course.show"
+              class="blue-text text-darken-2 material-icons">
+              expand_more
+            </i>
+            <i ng-show="course.show"
+              ng-click="course.show = !course.show"
+              class="blue-text text-darken-2 material-icons">
+              expand_less
+            </i>
+          </div>
+          <div ng-show="course.show" ng-controller="GradeController as GradeCtrl"
             ng-repeat="student in course.students">
             <div class="row">
               <div class="col s6">
@@ -43,14 +69,14 @@
               <div class="col s2">
                 <p>
                   <a href=""
-                    class="grade-change-btn"
+                    class="blue-text text-darken-2 grade-change-btn"
                     ng-click="GradeCtrl.change(1, student)">+</a>
                 </p>
               </div>
               <div class="col s2">
                 <p>
                   <a href=""
-                    class="grade-change-btn"
+                    class="red-text text-darken-2 grade-change-btn"
                     ng-click="GradeCtrl.change(0, student)">-</a>
                 </p>
               </div>
@@ -143,11 +169,23 @@
         </div>
       </div>
     </div>
-
-    <script src="./app.js"></script>
-    <script src="./controllers/grade.js"></script>
-    <script src="./controllers/create.class.js"></script>
-    <script src="./controllers/create.student.js"></script>
-    <script src="./controllers/stats.js"></script>
+    <br>
+    <div class="row" ng-controller="CreateCSVController as CSVCtrl">
+      <div class="col s12 center-align">
+        <a ng-hide="CSVCtrl.csv"
+          ng-click="CSVCtrl.toCSV()"
+          class="btn btn-primary teal darken-2">
+          <i class="material-icons left">refresh</i>
+          Download to CSV
+        </a>
+        <a ng-show="CSVCtrl.csv"
+          ng-href="{{ CSVCtrl.csv.href }}"
+          download="{{ CSVCtrl.csv.download }}"
+          class="btn btn-primary purple darken-4">
+          <i class="material-icons left">file_download</i>
+          Download!
+        </a>
+      </div>
+    </div>
   </body>
 </html>

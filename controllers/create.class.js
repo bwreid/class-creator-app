@@ -7,15 +7,30 @@
   function CreateClassController ($rootScope) {
     $rootScope.id = 1
 
-    $rootScope.courses = [{
-      id: $rootScope.id++,
-      name: 'History',
-      teacher: 'Professor Plum',
-      students: [
-        { id: $rootScope.id++, name: 'John Doe', grade: 'C' },
-        { id: $rootScope.id++, name: 'Jane Smith', grade: 'C' }
-      ]
-    }]
+    $rootScope.courses = [
+      {
+        id: $rootScope.id++,
+        name: 'HTML & CSS',
+        teacher: 'Harlow Elmo',
+        students: [
+          { id: $rootScope.id++, name: 'Darien Alan', grade: 'B' },
+          { id: $rootScope.id++, name: 'Sébastien Hartwin', grade: 'A-' },
+          { id: $rootScope.id++, name: 'Prosper Mackenzie', grade: 'C+' }
+        ]
+      },
+      {
+        id: $rootScope.id++,
+        name: 'JavaScript Fundamentals',
+        teacher: 'Jaden Sosimo',
+        students: [
+          { id: $rootScope.id++, name: 'Gilbert Vadik', grade: 'A' },
+          { id: $rootScope.id++, name: 'Ward Dalton', grade: 'A' },
+          { id: $rootScope.id++, name: 'Adi Syd', grade: 'B+' },
+          { id: $rootScope.id++, name: 'Lyosha Randell', grade: 'A-' },
+          { id: $rootScope.id++, name: 'Connie Jae', grade: 'C-' }
+        ]
+      }
+    ]
 
     this.course = initClass()
 

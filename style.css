@@ -3,12 +3,21 @@ select {
 }
 
 a.grade-change-btn {
-  color: #1b5e20;
   font-size: 1.2rem;
+  font-weight: bold;
   line-height: 0rem;
   padding: 0.5rem;
 }
 
 a.grade-change-btn:hover {
-  font-weight: bold;
+  text-decoration: underline;
+}
+
+.expand i {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
